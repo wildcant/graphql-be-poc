@@ -1,0 +1,33 @@
+# 
+# -------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# -------------------------------------------------------
+#
+
+type Editorial {
+  name: String
+}
+
+type Author {
+  id: String!
+  name: String
+}
+
+type Query {
+  author: Author
+  books: [Book]
+  book: Book
+}
+
+type Book {
+  id: String!
+  author: Author
+  computedProperty: Int
+  computedPropertyDoubled: Int
+  editorial: Editorial
+  title: String
+}
+
+schema {
+  query: Query
+}

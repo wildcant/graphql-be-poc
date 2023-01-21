@@ -1,0 +1,17 @@
+schema: ./src/modules/**/*.graphql
+
+generates:
+  ./src/modules/:
+    preset: graphql-modules
+    presetConfig:
+      baseTypesPath: graphql-types.ts
+      filename: types.ts
+      useGraphQLModules: false
+    plugins:
+      - add:
+          content: /* eslint-disable */
+      - typescript
+      - typescript-resolvers:
+          mappers:
+            Book: database#BookModel
+            Author: database#AuthorModel

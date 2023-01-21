@@ -1,0 +1,13 @@
+type Book {
+  id: String!
+  author: Author
+  computedProperty: Int
+  computedPropertyDoubled: Int
+  editorial: Editorial
+  title: String
+}
+
+type Query {
+  books: [Book]
+  book: Book
+}

@@ -1,0 +1,33 @@
+{
+  "name": "caja",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "yarn generate:schema && yarn compile && node ./dist/src/index.js",
+    "dev": "concurrently \"yarn generate:schema watch\" \"yarn generate:types --watch\" \"tsx watch src/index.ts\"",
+    "generate:types": "graphql-codegen",
+    "generate:schema": "tsx scripts/generate-schema.ts"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.3.1",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.16.4",
+    "@graphql-codegen/graphql-modules-preset": "^2.5.11",
+    "@graphql-codegen/near-operation-file-preset": "^2.5.0",
+    "@graphql-codegen/typescript": "^2.8.7",
+    "@graphql-codegen/typescript-resolvers": "^2.7.12",
+    "@graphql-tools/load-files": "^6.6.1",
+    "@graphql-tools/merge": "^8.3.15",
+    "@types/node": "^18.11.18",
+    "chokidar": "^3.5.3",
+    "concurrently": "^7.6.0",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.12.2",
+    "typescript": "^4.9.4"
+  }
+}
