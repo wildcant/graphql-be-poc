@@ -1,12 +1,11 @@
-import { authors } from "database"
 import { AuthorModule } from "./types"
 
 export const resolvers: AuthorModule.Resolvers = {
   Query: {
-    author: () => authors[0],
+    author: (_, args, context) => context.dataSources.authors.findUnique(args.id),
   },
   Author: {
-    id: ({ _id }) => _id,
+    id: ({ id }) => id,
     name: ({ name }) => name,
   },
 }

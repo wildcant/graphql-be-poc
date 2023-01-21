@@ -3,10 +3,10 @@ type Editorial {
 }
 
 type Author {
-  id: String!
+  id: Int!
   name: String
 }
 
 type Query {
-  author: Author
+  author(id: Int!): Author
 }

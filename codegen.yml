@@ -23,5 +23,6 @@ generates:
       - typescript
       - typescript-resolvers:
           mappers:
-            Book: database#BookModel
-            Author: database#AuthorModel
+            Book: ../database#BookModel
+            Author: ../database#AuthorModel
+          contextType: ../context#IContext

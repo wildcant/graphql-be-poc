@@ -11,3 +11,12 @@ Merge GraphQL resolvers with GraphQL Tools ->
 - https://the-guild.dev/graphql/tools/docs/schema-merging
 
 Split resolvers and types to have type safe resolvers and avoid names collision.
+
+## Useful Links
+
+- https://github.com/kriasoft/relay-starter-kit#readme
+
+## TODOs
+
+[] Try tests with [vitest](https://vitest.dev/guide/) https://www.hubburu.com/articles/testing_apollo_server_with_vitest
+[] Add generator script to create a new module.

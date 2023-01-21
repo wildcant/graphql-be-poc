@@ -2,15 +2,12 @@
 
 import { loadFilesSync } from "@graphql-tools/load-files"
 import { mergeTypeDefs } from "@graphql-tools/merge"
+import chokidar from "chokidar"
 import { writeFileSync } from "fs"
 import { print } from "graphql"
 import path from "path"
-import { fileURLToPath } from "url"
-import chokidar from "chokidar"
 
-const __filename = fileURLToPath(import.meta.url)
-const __root = path.dirname(path.dirname(__filename))
-const dir = `${__root}/src/modules/**/*.graphql`
+const dir = `${path.dirname(__dirname)}/src/modules/**/*.graphql`
 const prefix = `# 
 # -------------------------------------------------------
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)

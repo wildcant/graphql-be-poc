@@ -1,25 +1,28 @@
-import { authors, books } from "database"
 import { BookModule } from "./types"
 
 const specialCase = true
 
 export const resolvers: BookModule.Resolvers = {
   Query: {
-    book: () => {
-      const book = books[0]
+    book: async (_, args, context) => {
+      const book = await context.dataSources.books.findUnique(args.id)
+
+      if (!book) {
+        return null
+      }
 
       if (specialCase) {
-        // Seems useful to define the computed property in the db model in case
-        // we need to access this property from multiple resolvers.
+        // Define the computed property in the db model in case we need to access this property from multiple resolvers.
         book.computedProperty = 123
       }
 
       return book
     },
   },
+
   Book: {
-    id: (b) => b._id,
-    author: (b) => authors.find((a) => a._id === b.authorId),
+    id: (b) => b.id,
+    author: async (b, _, c) => c.dataSources.authors.findUnique(b.author),
 
     computedProperty: (b) => b.computedProperty,
     computedPropertyDoubled: (b) => b.computedProperty * 2,

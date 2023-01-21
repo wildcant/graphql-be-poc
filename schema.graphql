@@ -9,18 +9,18 @@ type Editorial {
 }
 
 type Author {
-  id: String!
+  id: Int!
   name: String
 }
 
 type Query {
-  author: Author
+  author(id: Int!): Author
   books: [Book]
-  book: Book
+  book(id: Int!): Book
 }
 
 type Book {
-  id: String!
+  id: Int!
   author: Author
   computedProperty: Int
   computedPropertyDoubled: Int
