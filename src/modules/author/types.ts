@@ -1,4 +1,11 @@
+/*
+ * -------------------------------------------------------
+ * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+ * -------------------------------------------------------
+ */
+
 /* eslint-disable */
+
 import * as Types from "../graphql-types";
 export namespace AuthorModule {
   interface DefinedFields {

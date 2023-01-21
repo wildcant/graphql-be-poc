@@ -1,4 +1,11 @@
+/*
+ * -------------------------------------------------------
+ * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+ * -------------------------------------------------------
+ */
+
 /* eslint-disable */
+
 import { GraphQLResolveInfo } from 'graphql';
 import { BookModel, AuthorModel } from 'database';
 export type Maybe<T> = T | null;

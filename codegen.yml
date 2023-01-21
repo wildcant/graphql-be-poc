@@ -1,5 +1,16 @@
 schema: ./src/modules/**/*.graphql
 
+definitions:
+  add: &top-comment
+    content: >
+      /*
+       * -------------------------------------------------------
+       * THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+       * -------------------------------------------------------
+       */
+
+      /* eslint-disable */
+
 generates:
   ./src/modules/:
     preset: graphql-modules
@@ -8,8 +19,7 @@ generates:
       filename: types.ts
       useGraphQLModules: false
     plugins:
-      - add:
-          content: /* eslint-disable */
+      - add: *top-comment
       - typescript
       - typescript-resolvers:
           mappers:
