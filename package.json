@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "compile": "tsc",
-    "start:prod": "yarn generate:schema && yarn compile && node ./dist/src/index.js",
-    "start:dev": "concurrently \"yarn generate:schema watch\" \"yarn generate:types --watch\" \"tsx watch src/index.ts\"",
+    "prod": "yarn generate:schema && yarn compile && node ./dist/src/index.js",
+    "dev": "concurrently \"yarn generate:schema watch\" \"yarn generate:types --watch\" \"tsx watch src/index.ts\"",
     "db:init-mongo-rs": "scripts/init-db.sh",
     "db:init": "docker compose up -d",
-    "db:seed": "tsx src/database/pg/scripts/pg-init.ts && tsx src/database/mongo/scripts/mongo-init.ts",
+    "db:seed": "tsx src/datasources/pg/scripts/pg-init.ts && tsx src/datasources/mongo/scripts/mongo-init.ts",
     "generate:types": "graphql-codegen",
     "generate:schema": "tsx scripts/generate-schema.ts"
   },

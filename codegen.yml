@@ -23,7 +23,7 @@ generates:
       - typescript
       - typescript-resolvers:
           mappers:
-            Book: ../database#BookModel
-            Author: ../database#AuthorModel
-            Library: ../database#LibraryModel
+            Book: ../datasources#BookModel
+            Author: ../datasources#AuthorModel
+            Library: ../datasources#LibraryModel
           contextType: ../context#IContext
