@@ -17,6 +17,7 @@ type Query {
   author(id: Int!): Author
   books: [Book]
   book(id: Int!): Book
+  library(id: String!): Library
 }
 
 type Book {
@@ -26,6 +27,13 @@ type Book {
   computedPropertyDoubled: Int
   editorial: Editorial
   title: String
+}
+
+type Library {
+  id: String!
+  name: String
+  address: String
+  books: [Book]
 }
 
 schema {

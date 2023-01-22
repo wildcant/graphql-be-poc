@@ -7,7 +7,7 @@
 /* eslint-disable */
 
 import { GraphQLResolveInfo } from 'graphql';
-import { BookModel, AuthorModel } from '../database';
+import { BookModel, AuthorModel, LibraryModel } from '../database';
 import { IContext } from '../context';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
@@ -45,11 +45,20 @@ export type Editorial = {
   name?: Maybe<Scalars['String']>;
 };
 
+export type Library = {
+  __typename?: 'Library';
+  address?: Maybe<Scalars['String']>;
+  books?: Maybe<Array<Maybe<Book>>>;
+  id: Scalars['String'];
+  name?: Maybe<Scalars['String']>;
+};
+
 export type Query = {
   __typename?: 'Query';
   author?: Maybe<Author>;
   book?: Maybe<Book>;
   books?: Maybe<Array<Maybe<Book>>>;
+  library?: Maybe<Library>;
 };
 
 
@@ -60,6 +69,11 @@ export type QueryAuthorArgs = {
 
 export type QueryBookArgs = {
   id: Scalars['Int'];
+};
+
+
+export type QueryLibraryArgs = {
+  id: Scalars['String'];
 };
 
 
@@ -136,6 +150,7 @@ export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']>;
   Editorial: ResolverTypeWrapper<Editorial>;
   Int: ResolverTypeWrapper<Scalars['Int']>;
+  Library: ResolverTypeWrapper<LibraryModel>;
   Query: ResolverTypeWrapper<{}>;
   String: ResolverTypeWrapper<Scalars['String']>;
 };
@@ -147,6 +162,7 @@ export type ResolversParentTypes = {
   Boolean: Scalars['Boolean'];
   Editorial: Editorial;
   Int: Scalars['Int'];
+  Library: LibraryModel;
   Query: {};
   String: Scalars['String'];
 };
@@ -172,16 +188,26 @@ export type EditorialResolvers<ContextType = IContext, ParentType extends Resolv
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
+export type LibraryResolvers<ContextType = IContext, ParentType extends ResolversParentTypes['Library'] = ResolversParentTypes['Library']> = {
+  address?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>;
+  name?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
+};
+
 export type QueryResolvers<ContextType = IContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   author?: Resolver<Maybe<ResolversTypes['Author']>, ParentType, ContextType, RequireFields<QueryAuthorArgs, 'id'>>;
   book?: Resolver<Maybe<ResolversTypes['Book']>, ParentType, ContextType, RequireFields<QueryBookArgs, 'id'>>;
   books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+  library?: Resolver<Maybe<ResolversTypes['Library']>, ParentType, ContextType, RequireFields<QueryLibraryArgs, 'id'>>;
 };
 
 export type Resolvers<ContextType = IContext> = {
   Author?: AuthorResolvers<ContextType>;
   Book?: BookResolvers<ContextType>;
   Editorial?: EditorialResolvers<ContextType>;
+  Library?: LibraryResolvers<ContextType>;
   Query?: QueryResolvers<ContextType>;
 };
 

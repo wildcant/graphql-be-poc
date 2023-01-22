@@ -1,8 +1,8 @@
 import DataLoader from "dataloader"
 import { AuthorModel } from "./author"
 import { BookModel } from "./book"
-import { knex } from "./knex-instance"
-import { mapTo } from "./utils"
+import { knex } from "./knex"
+import { mapTo } from "../utils"
 
 /**
  * Data Loaders.

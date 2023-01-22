@@ -1,0 +1,10 @@
+type Library {
+  id: String!
+  name: String
+  address: String
+  books: [Book]
+}
+
+type Query {
+  library(id: String!): Library
+}

@@ -25,4 +25,5 @@ generates:
           mappers:
             Book: ../database#BookModel
             Author: ../database#AuthorModel
+            Library: ../database#LibraryModel
           contextType: ../context#IContext

@@ -1,7 +1,12 @@
 #!/usr/bin/env tsx
 
-import { knex } from "../knex-instance"
-;(async () => {
+import { knex } from "../knex"
+
+export async function createTables() {
+  if (await knex.schema.hasTable("books")) {
+    await knex.schema.dropTable("books")
+  }
+
   if (await knex.schema.hasTable("authors")) {
     await knex.schema.dropTable("authors")
   }
@@ -11,10 +16,6 @@ import { knex } from "../knex-instance"
     table.string("name")
     table.timestamps()
   })
-
-  if (await knex.schema.hasTable("books")) {
-    await knex.schema.dropTable("books")
-  }
 
   await knex.schema.createTable("books", function (table) {
     table.increments("id").primary()
@@ -26,4 +27,4 @@ import { knex } from "../knex-instance"
 
     table.timestamps()
   })
-})()
+}
