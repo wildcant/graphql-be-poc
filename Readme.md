@@ -1,3 +1,9 @@
+## Goals
+
+- Schema first with type safety.
+- Simplicity and good DX.
+- Scalable project structure following a few best practices.
+
 references:
 
 Type safe resolvers with GraphQL Code Generator ->
@@ -9,6 +15,8 @@ Merge GraphQL resolvers with GraphQL Tools ->
 
 - https://www.youtube.com/watch?v=6Jd5nKQrqcU
 - https://the-guild.dev/graphql/tools/docs/schema-merging
+
+Data source APIs -> https://www.prisma.io/docs/reference/api-reference/prisma-client-reference
 
 Split resolvers and types to have type safe resolvers and avoid names collision.
 
