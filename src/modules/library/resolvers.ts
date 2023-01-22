@@ -1,5 +1,5 @@
 import { ObjectId } from "mongodb"
-import { BookModel } from "../../database"
+import { BookModel } from "../../datasources"
 import { LibraryModule } from "./types"
 
 export const resolvers: LibraryModule.Resolvers = {

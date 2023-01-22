@@ -1,5 +1,5 @@
 import { StandaloneServerContextFunctionArgument } from "@apollo/server/dist/esm/standalone"
-import { authorsDataSource, booksDataSource, librariesDataSource } from "./database"
+import { authorsDataSource, booksDataSource, librariesDataSource } from "./datasources"
 
 export async function context(_args: StandaloneServerContextFunctionArgument) {
   return {
