@@ -1,6 +1,6 @@
 import { Knex } from "knex"
-import { BookModel } from "./book"
-import { AuthorModel } from "./author"
+import { BookModel } from "./pg/book"
+import { AuthorModel } from "./pg/author"
 
 declare module "knex/types/tables" {
   interface Tables {
